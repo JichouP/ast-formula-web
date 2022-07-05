@@ -9,9 +9,8 @@ static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 
 #[wasm_bindgen]
 pub fn calculate(input: &str) -> Result<i32, JsValue> {
-    let result = calc(input);
-    match result {
+    match calc(input) {
         Ok(res) => Ok(res),
-        Err(_) => Err(JsValue::from("Syntax Error")),
+        Err(reason) => Err(JsValue::from(reason)),
     }
 }
