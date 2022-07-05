@@ -17,7 +17,7 @@ wasm-bindgen = "0.2.63"
 # Unfortunately, `wee_alloc` requires nightly Rust when targeting wasm for now.
 wee_alloc = {version = "0.4.5", optional = true}
 
-ast-formula = {git = "https://github.com/JichouP/ast-formula-rs", rev = "bb0971e"}
+ast-formula = {git = "https://github.com/JichouP/ast-formula-rs", rev = "0c72eea"}
 
 [dev-dependencies]
 wasm-bindgen-test = "0.3.13"
