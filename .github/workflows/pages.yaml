@@ -24,6 +24,26 @@ jobs:
           restore-keys: |
             node-
 
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+
+      - name: Run tests
+        run: cargo test --verbose
+        working-directory: ./wasm
+
+      - name: install wasm-pack
+        run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+        working-directory: ./wasm
+
+      - name: build wasm-pack
+        run: wasm-pack build --release --target web
+        working-directory: ./wasm
+
       - name: Install and Build
         run: |
           npm ci
