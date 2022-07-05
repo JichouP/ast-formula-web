@@ -3,7 +3,7 @@ import init, { calculate } from '../wasm/pkg';
 
 function App() {
   const [value, setValue] = useState('1+2');
-  const [answer, setAnswer] = useState('aa');
+  const [answer, setAnswer] = useState('3');
   const [initDone, setInitDone] = useState(false);
 
   useEffect(() => {
